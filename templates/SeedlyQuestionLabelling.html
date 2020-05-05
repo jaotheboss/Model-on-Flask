@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+
+{% block main %}
+    <!-- Frontend layout of the model application -->
+
+    <h1> 
+        Seedly Question Labelling 
+    </h1>
+
+    <p> 
+        Enter a question in the text field below and a classification model will recommend some labels you can use to tag your question before posting them onto Seedly's QnA page!
+    </p>
+
+    <br>
+        
+    <!-- This creates a form that takes in text data from the website -->
+    <form method = "POST">
+        <h6> Enter your Question here! </h6>
+        <textarea name = 'Question' rows = '4' cols = '75'></textarea>
+        <br>
+        <input type="submit">
+    </form>
+
+    <br>
+
+    <!-- This will show the results of the model -->
+    <p> 
+        <h3> Results: </h3>
+        <br>
+        Question is Predicted to be Tagged under:
+        <br>
+        <br>
+        {% for row in result %}
+            <tr>
+                {% if row[1] == 1 %}
+                    <td style="color: blue;"> • {{ row[0] }} </td>
+                    <br>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </p>
+
+{% endblock %}
+
+
+{% block description %}
+    <!-- Description of the model -->
+{% endblock %}

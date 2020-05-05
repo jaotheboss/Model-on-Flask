@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+<!-- meaning we're extending upon the layout.html template -->
+<!-- the body in the layout.html template is within a content block as seen below -->
+
+{% block main %} <!-- the name matters -->
+
+    <div>
+        <img src = "https://i2.wp.com/bestlifeonline.com/wp-content/uploads/2018/10/red-panda-raising-fist.jpg?resize=640%2C360&ssl=1" alt = "Intro Picture">
+    </div>
+    
+    <br>
+
+    <div>
+        <h1>Welcome!</h1>
+        <p>
+            This website aims to host example applications for the various models that I have crafted. Therefore this only shows the frontend of the product.
+            Albeit if you're interested in the backend to these applications, I have linked my Github Repo, alongside my LinkedIn profile, on the navigation bar above.
+            <br>
+            <br>
+            Thank you for reading this, and please refer to the right navigation bar for the various model applications!
+        </p>
+    </div>
+
+
+{% endblock main %}
+
+{% block description %}
+    Please select a model you'd like to try out!
+{% endblock %}

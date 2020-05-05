@@ -1,0 +1,84 @@
+<!DOCTYPE html> <!-- this is to declare that this is a HTML file-->
+<html lang = 'en'>
+
+<!-- this is the layout template that will be used for other html files-->
+
+<!-- this head will be the template that'll be used for all the html files-->
+<head> 
+
+    <!-- THIS IS FROM BOOTSTRAP -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel = 'stylesheet' type = 'text/css' href = "{{ url_for('static', filename = 'main.css') }}">
+
+    {% if title %}
+        <title>{{ title }}</title> 
+    {% else %}
+        <title> JM Models </title>
+    {% endif %}
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="/"> JM Models </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="https://github.com/jaotheboss"> Github </a>
+                        <a class="nav-item nav-link" href="https://www.linkedin.com/in/teojaoming/"> LinkedIn </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main role = 'main' class = 'container'>
+        <div class = 'row'>
+            <!-- To showcase the actual model -->
+            <div class = 'col-md-8'>
+                {% block main %}{% endblock %}
+                <!-- `content` is the name of this block -->
+                <!-- that means that all the blocks that are created in the other files need to name their block `content` -->
+                <!-- block content means other html files just has to extend upon this, while following the header template of this layout-->        
+            </div>
+            
+            <!-- Sidebar. To showcase the list of available models for trial -->
+            <div class = 'col-md-4'>
+                <div class = 'content-section'>
+                    <h3> Our Sidebar </h3>
+                    <p class = 'text-muted'>
+                        {% block description %}{% endblock %}
+                        <div class = 'list-group'>
+                            <!-- ADD NEW MODELS AND THEIR LINKS OVER HERE -->
+                            <a class = 'list-group-item list-group-item-heavy list-group-item-action' href = '/SeedlyQuestionLabelling'> Seedly Question Labelling </a>
+                            <a class = 'list-group-item list-group-item-light list-group-item-action' href = '/'> Model 2 </a>
+                            <a class = 'list-group-item list-group-item-light list-group-item-action' href = '/'> Model 3 </a>
+                            <a class = 'list-group-item list-group-item-light list-group-item-action' href = '/'> Model 4 </a>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- THIS IS FROM BOOSTRAP -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html> 
